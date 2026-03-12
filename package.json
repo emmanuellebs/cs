@@ -5,10 +5,12 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js --mode=apply",
+    "preflight": "npm run build && node dist/index.js --mode=preflight",
     "audit": "node dist/index.js --mode=audit",
+    "start": "node dist/index.js --mode=apply",
     "dev:apply": "ts-node src/index.ts --mode=apply",
-    "dev:audit": "ts-node src/index.ts --mode=audit"
+    "dev:audit": "ts-node src/index.ts --mode=audit",
+    "dev:preflight": "ts-node src/index.ts --mode=preflight"
   },
   "keywords": [
     "jira",

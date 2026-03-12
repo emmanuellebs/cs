@@ -20,7 +20,7 @@ function loadFiltersProvisionConfig() {
             key: 'upcomingRenewals',
             name: 'CSM - Renovações próximas',
             description: 'Contas com renovação próxima.',
-            jqlTemplate: 'project = {projectKey} AND "Data de renovação" >= startOfDay() AND "Data de renovação" <= endOfDay(+90d) ORDER BY "Data de renovação" ASC',
+            jqlTemplate: 'project = {projectKey} AND "Data de renovação" >= startOfDay() AND "Data de renovação" <= endOfDay("\\u002b90d") ORDER BY "Data de renovação" ASC',
         },
         {
             key: 'noRecentInteractions',

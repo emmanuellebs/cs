@@ -10,6 +10,11 @@ function loadFieldsProvisionConfig() {
             description: 'Segmento da conta cliente.',
             group: 'account',
             kind: 'select',
+            options: [
+                { value: 'Enterprise' },
+                { value: 'Mid-Market' },
+                { value: 'SMB' },
+            ],
         },
         {
             key: 'account.userCount',
@@ -104,6 +109,11 @@ function loadFieldsProvisionConfig() {
             description: 'Produto principal contratado pelo cliente.',
             group: 'account',
             kind: 'select',
+            options: [
+                { value: 'Platform Core' },
+                { value: 'Platform Plus' },
+                { value: 'Platform Enterprise' },
+            ],
         },
         {
             key: 'account.journeyStartDate',

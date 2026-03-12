@@ -1,36 +1,39 @@
 # Preflight Jira CS
 
-- **Modo**: apply
-- **Início**: 2026-03-12T13:40:13.183Z
-- **Fim**: 2026-03-12T13:40:23.597Z
+- **Modo**: audit
+- **Início**: 2026-03-12T15:01:52.737Z
+- **Fim**: 2026-03-12T15:02:08.762Z
 - **Status geral**: rejected
 
 ## Resumo executivo
 
 - **Pode seguir para apply?** Não
-- **Passes**: 119
-- **Warnings**: 14
-- **Falhas**: 2
-- **Falhas bloqueantes**: 2
+- **Passes**: 82
+- **Warnings**: 43
+- **Falhas**: 8
+- **Falhas bloqueantes**: 5
 
 ### Principais bloqueios
 
-- **Campo select sem opções configuradas** (config:field-select-no-options:account.segment) - Campo select "Segmento" não possui opções definidas.
-- **Campo select sem opções configuradas** (config:field-select-no-options:account.product) - Campo select "Produto" não possui opções definidas.
+- **Validação de autenticação (GET /myself)** (auth:myself) - Falha ao autenticar no Jira usando /rest/api/3/myself. Verifique URL, email e API token.
+- **Endpoint /rest/api/3/myself** (endpoint:myself) - Falha ao acessar endpoint (401).
+- **Permissão Administrar Jira (global)** (perm:administer) - Usuário autenticado aparenta não possuir esta permissão.
+- **Permissão Administrar projetos** (perm:administer_projects) - Usuário autenticado aparenta não possuir esta permissão.
+- **Permissão Criar issues** (perm:create_issues) - Usuário autenticado aparenta não possuir esta permissão.
 
 ### Principais warnings
 
 - **Diretório de templates de tickets** (config:templates-dir-missing) - Diretório src/templates/ticketDescriptions não encontrado. Templates de descrição serão documentados apenas em texto.
 - **Dependência de projectId para campos/contextos** (dep:fields-projectid) - Campos customizados e contextos dependem de um projectId real em tempo de execução. Se o projeto não existir, estes passos serão marcados como manuais.
-- **Validação de JQL para filtro "CSM - Board base"** (jql:boardBase) - Erro ao validar JQL para filtro "CSM - Board base".
-- **Validação de JQL para filtro "CSM - Clientes em risco"** (jql:clientsAtRisk) - Erro ao validar JQL para filtro "CSM - Clientes em risco".
-- **Validação de JQL para filtro "CSM - Renovações próximas"** (jql:upcomingRenewals) - Erro ao validar JQL para filtro "CSM - Renovações próximas".
-- **Validação de JQL para filtro "CSM - Clientes sem interação recente"** (jql:noRecentInteractions) - Erro ao validar JQL para filtro "CSM - Clientes sem interação recente".
-- **Validação de JQL para filtro "CSM - Oportunidades em aberto"** (jql:openOpportunities) - Erro ao validar JQL para filtro "CSM - Oportunidades em aberto".
-- **Validação de JQL para filtro "CSM - Contas por estágio do lifecycle"** (jql:accountsByLifecycle) - Erro ao validar JQL para filtro "CSM - Contas por estágio do lifecycle".
-- **Validação de JQL para filtro "CSM - Contas ativas"** (jql:activeAccounts) - Erro ao validar JQL para filtro "CSM - Contas ativas".
-- **Validação de JQL para filtro "CSM - Contas churnadas"** (jql:churnedAccounts) - Erro ao validar JQL para filtro "CSM - Contas churnadas".
-- ... e mais 4 warnings.
+- **Validação de modelo de campo "Responsável da ação"** (fieldmodel:successPlan.owner) - Campo userPicker pode ter limitações de configuração por API; confirme manualmente o comportamento desejado.
+- **Simulação de projeto** (sim:project) - Projeto não existe. Em modo apply, o script tentaria criá-lo (would_create) se permissões permitirem.
+- **Simulação de campo "Segmento"** (sim:field:account.segment) - Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).
+- **Simulação de campo "Quantidade de usuários"** (sim:field:account.userCount) - Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).
+- **Simulação de campo "MRR"** (sim:field:account.mrr) - Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).
+- **Simulação de campo "Health Score"** (sim:field:account.healthScore) - Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).
+- **Simulação de campo "NPS"** (sim:field:account.nps) - Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).
+- **Simulação de campo "Status da conta"** (sim:field:account.status) - Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).
+- ... e mais 33 warnings.
 
 ### Próxima ação recomendada
 
@@ -52,33 +55,31 @@
 | config:fields-load | Carregamento de configuração de campos | pass | info | não | Foram carregados 38 campos lógicos. |
 | config:filters-load | Carregamento de configuração de filtros | pass | info | não | Foram carregados 9 filtros configurados. |
 | config:dashboards-load | Carregamento de configuração de dashboards | pass | info | não | Foram carregados 3 dashboards configurados. |
-| auth:myself | Validação de autenticação (GET /myself) | pass | info | não | Autenticação OK. Usuário: Emmanuelle Barbosa (712020:33175fac-dd20-48c0-ad33-15128aea86ba). |
-| endpoint:myself | Endpoint /rest/api/3/myself | pass | info | não | Endpoint respondeu com status 200. |
+| auth:myself | Validação de autenticação (GET /myself) | fail | critical | sim | Falha ao autenticar no Jira usando /rest/api/3/myself. Verifique URL, email e API token. |
+| endpoint:myself | Endpoint /rest/api/3/myself | fail | critical | sim | Falha ao acessar endpoint (401). |
 | endpoint:issuetype | Endpoint /rest/api/3/issuetype | pass | info | não | Endpoint respondeu com status 200. |
 | endpoint:field | Endpoint /rest/api/3/field | pass | info | não | Endpoint respondeu com status 200. |
 | endpoint:filter-search | Endpoint /rest/api/3/filter/search | pass | info | não | Endpoint respondeu com status 200. |
 | endpoint:dashboard | Endpoint /rest/api/3/dashboard | pass | info | não | Endpoint respondeu com status 200. |
-| endpoint:agile-board | Endpoint /rest/agile/1.0/board | pass | info | não | Endpoint respondeu com status 200. |
-| perm:administer | Permissão Administrar Jira (global) | pass | info | não | Permissão aparenta estar disponível para o usuário autenticado. |
-| perm:administer_projects | Permissão Administrar projetos | pass | info | não | Permissão aparenta estar disponível para o usuário autenticado. |
-| perm:browse_projects | Permissão Visualizar projetos | pass | info | não | Permissão aparenta estar disponível para o usuário autenticado. |
-| perm:create_issues | Permissão Criar issues | pass | info | não | Permissão aparenta estar disponível para o usuário autenticado. |
-| perm:manage_sprints_permission | Permissão Gerenciar boards/sprints | pass | info | não | Permissão aparenta estar disponível para o usuário autenticado. |
-| config:field-select-no-options:account.segment | Campo select sem opções configuradas | fail | high | sim | Campo select "Segmento" não possui opções definidas. |
-| config:field-select-no-options:account.product | Campo select sem opções configuradas | fail | high | sim | Campo select "Produto" não possui opções definidas. |
+| endpoint:agile-board | Endpoint /rest/agile/1.0/board | fail | high | não | Falha ao acessar endpoint (401). |
+| perm:administer | Permissão Administrar Jira (global) | fail | high | sim | Usuário autenticado aparenta não possuir esta permissão. |
+| perm:administer_projects | Permissão Administrar projetos | fail | high | sim | Usuário autenticado aparenta não possuir esta permissão. |
+| perm:browse_projects | Permissão Visualizar projetos | fail | medium | não | Usuário autenticado aparenta não possuir esta permissão. |
+| perm:create_issues | Permissão Criar issues | fail | high | sim | Usuário autenticado aparenta não possuir esta permissão. |
+| perm:manage_sprints_permission | Permissão Gerenciar boards/sprints | fail | medium | não | Usuário autenticado aparenta não possuir esta permissão. |
 | config:templates-dir-missing | Diretório de templates de tickets | warn | low | não | Diretório src/templates/ticketDescriptions não encontrado. Templates de descrição serão documentados apenas em texto. |
 | dep:board-base-filter | Filtro base para board Kanban | pass | info | não | Filtro base identificado: CSM - Board base. |
 | dep:fields-projectid | Dependência de projectId para campos/contextos | warn | low | não | Campos customizados e contextos dependem de um projectId real em tempo de execução. Se o projeto não existir, estes passos serão marcados como manuais. |
-| jql:boardBase | Validação de JQL para filtro "CSM - Board base" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Board base". |
-| jql:clientsAtRisk | Validação de JQL para filtro "CSM - Clientes em risco" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Clientes em risco". |
-| jql:upcomingRenewals | Validação de JQL para filtro "CSM - Renovações próximas" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Renovações próximas". |
-| jql:noRecentInteractions | Validação de JQL para filtro "CSM - Clientes sem interação recente" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Clientes sem interação recente". |
-| jql:openOpportunities | Validação de JQL para filtro "CSM - Oportunidades em aberto" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Oportunidades em aberto". |
-| jql:accountsByLifecycle | Validação de JQL para filtro "CSM - Contas por estágio do lifecycle" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Contas por estágio do lifecycle". |
-| jql:activeAccounts | Validação de JQL para filtro "CSM - Contas ativas" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Contas ativas". |
-| jql:churnedAccounts | Validação de JQL para filtro "CSM - Contas churnadas" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Contas churnadas". |
-| jql:interactionsThisMonth | Validação de JQL para filtro "CSM - Interações do mês" | warn | medium | não | Erro ao validar JQL para filtro "CSM - Interações do mês". |
-| fieldmodel:account.segment | Validação de modelo de campo "Segmento" | warn | low | não | Campo select "Segmento" não possui opções definidas (ver configCheck). |
+| jql:boardBase | Validação de JQL para filtro "CSM - Board base" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:clientsAtRisk | Validação de JQL para filtro "CSM - Clientes em risco" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:upcomingRenewals | Validação de JQL para filtro "CSM - Renovações próximas" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:noRecentInteractions | Validação de JQL para filtro "CSM - Clientes sem interação recente" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:openOpportunities | Validação de JQL para filtro "CSM - Oportunidades em aberto" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:accountsByLifecycle | Validação de JQL para filtro "CSM - Contas por estágio do lifecycle" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:activeAccounts | Validação de JQL para filtro "CSM - Contas ativas" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:churnedAccounts | Validação de JQL para filtro "CSM - Contas churnadas" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| jql:interactionsThisMonth | Validação de JQL para filtro "CSM - Interações do mês" | pass | info | não | JQL validada com sucesso (sintaxe e campos aparentam estar corretos). |
+| fieldmodel:account.segment | Validação de modelo de campo "Segmento" | pass | info | não | Campo "Segmento" com tipo lógico "select". |
 | fieldmodel:account.userCount | Validação de modelo de campo "Quantidade de usuários" | pass | info | não | Campo "Quantidade de usuários" com tipo lógico "number". |
 | fieldmodel:account.mrr | Validação de modelo de campo "MRR" | pass | info | não | Campo "MRR" com tipo lógico "number". |
 | fieldmodel:account.healthScore | Validação de modelo de campo "Health Score" | pass | info | não | Campo "Health Score" com tipo lógico "number". |
@@ -88,7 +89,7 @@
 | fieldmodel:account.csParticipation | Validação de modelo de campo "Participação CS" | pass | info | não | Campo "Participação CS" com tipo lógico "select". |
 | fieldmodel:account.advocacyProgram | Validação de modelo de campo "Participa do programa de Advocacy" | pass | info | não | Campo "Participa do programa de Advocacy" com tipo lógico "select". |
 | fieldmodel:account.renewalDate | Validação de modelo de campo "Data de renovação" | pass | info | não | Campo "Data de renovação" com tipo lógico "date". |
-| fieldmodel:account.product | Validação de modelo de campo "Produto" | warn | low | não | Campo select "Produto" não possui opções definidas (ver configCheck). |
+| fieldmodel:account.product | Validação de modelo de campo "Produto" | pass | info | não | Campo "Produto" com tipo lógico "select". |
 | fieldmodel:account.journeyStartDate | Validação de modelo de campo "Data de início da jornada" | pass | info | não | Campo "Data de início da jornada" com tipo lógico "date". |
 | fieldmodel:account.launchDate | Validação de modelo de campo "Data do lançamento" | pass | info | não | Campo "Data do lançamento" com tipo lógico "date". |
 | fieldmodel:account.trainingDate | Validação de modelo de campo "Data do treinamento" | pass | info | não | Campo "Data do treinamento" com tipo lógico "date". |
@@ -116,7 +117,7 @@
 | fieldmodel:risk.estimatedValue | Validação de modelo de campo "Valor estimado" | pass | info | não | Campo "Valor estimado" com tipo lógico "number". |
 | fieldmodel:risk.reason | Validação de modelo de campo "Motivo" | pass | info | não | Campo "Motivo" com tipo lógico "paragraph". |
 | fieldmodel:risk.actionPlan | Validação de modelo de campo "Plano de ação" | pass | info | não | Campo "Plano de ação" com tipo lógico "paragraph". |
-| sim:project | Simulação de projeto | pass | info | não | Projeto já existe e seria reutilizado (would_reuse). |
+| sim:project | Simulação de projeto | warn | medium | não | Projeto não existe. Em modo apply, o script tentaria criá-lo (would_create) se permissões permitirem. |
 | sim:issuetype:account | Simulação de issue type "Conta Cliente" | pass | info | não | Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config. |
 | sim:issuetype:interaction | Simulação de issue type "Interação" | pass | info | não | Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config. |
 | sim:issuetype:successPlan | Simulação de issue type "Plano de Sucesso" | pass | info | não | Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config. |
@@ -124,44 +125,44 @@
 | sim:issuetype:opportunity | Simulação de issue type "Oportunidade CS" | pass | info | não | Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config. |
 | sim:issuetype:renewal | Simulação de issue type "Renovação" | pass | info | não | Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config. |
 | sim:issuetype:onboardingTask | Simulação de issue type "Onboarding Task" | pass | info | não | Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config. |
-| sim:field:account.segment | Simulação de campo "Segmento" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.userCount | Simulação de campo "Quantidade de usuários" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.mrr | Simulação de campo "MRR" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.healthScore | Simulação de campo "Health Score" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.nps | Simulação de campo "NPS" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.status | Simulação de campo "Status da conta" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.engagement | Simulação de campo "Engajamento da plataforma" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.csParticipation | Simulação de campo "Participação CS" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.advocacyProgram | Simulação de campo "Participa do programa de Advocacy" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.renewalDate | Simulação de campo "Data de renovação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.product | Simulação de campo "Produto" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.journeyStartDate | Simulação de campo "Data de início da jornada" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.launchDate | Simulação de campo "Data do lançamento" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.trainingDate | Simulação de campo "Data do treinamento" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.contractDuration | Simulação de campo "Duração do contrato" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:account.notes | Simulação de campo "Observações da conta" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:primaryContact.name | Simulação de campo "Nome do contato principal" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:primaryContact.email | Simulação de campo "Email do contato principal" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:primaryContact.phone | Simulação de campo "Telefone do contato principal" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:primaryContact.role | Simulação de campo "Cargo do contato principal" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:primaryContact.area | Simulação de campo "Área do contato principal" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:interaction.type | Simulação de campo "Tipo de interação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:interaction.date | Simulação de campo "Data da interação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:interaction.summary | Simulação de campo "Resumo da interação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:interaction.insight | Simulação de campo "Insight coletado" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:interaction.sentiment | Simulação de campo "Sentimento do cliente" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:interaction.nextSteps | Simulação de campo "Próximos passos" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:successPlan.goal | Simulação de campo "Objetivo da ação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:successPlan.actionType | Simulação de campo "Tipo de ação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:successPlan.priority | Simulação de campo "Prioridade" | pass | info | não | Campo já existe e seria reutilizado (would_reuse). |
-| sim:field:successPlan.dueDate | Simulação de campo "Prazo" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:successPlan.owner | Simulação de campo "Responsável da ação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:successPlan.metric | Simulação de campo "Métrica de sucesso" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:risk.type | Simulação de campo "Tipo de registro" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:risk.probability | Simulação de campo "Probabilidade" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:risk.estimatedValue | Simulação de campo "Valor estimado" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:risk.reason | Simulação de campo "Motivo" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
-| sim:field:risk.actionPlan | Simulação de campo "Plano de ação" | pass | medium | não | Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário. |
+| sim:field:account.segment | Simulação de campo "Segmento" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.userCount | Simulação de campo "Quantidade de usuários" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.mrr | Simulação de campo "MRR" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.healthScore | Simulação de campo "Health Score" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.nps | Simulação de campo "NPS" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.status | Simulação de campo "Status da conta" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.engagement | Simulação de campo "Engajamento da plataforma" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.csParticipation | Simulação de campo "Participação CS" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.advocacyProgram | Simulação de campo "Participa do programa de Advocacy" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.renewalDate | Simulação de campo "Data de renovação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.product | Simulação de campo "Produto" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.journeyStartDate | Simulação de campo "Data de início da jornada" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.launchDate | Simulação de campo "Data do lançamento" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.trainingDate | Simulação de campo "Data do treinamento" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.contractDuration | Simulação de campo "Duração do contrato" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:account.notes | Simulação de campo "Observações da conta" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:primaryContact.name | Simulação de campo "Nome do contato principal" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:primaryContact.email | Simulação de campo "Email do contato principal" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:primaryContact.phone | Simulação de campo "Telefone do contato principal" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:primaryContact.role | Simulação de campo "Cargo do contato principal" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:primaryContact.area | Simulação de campo "Área do contato principal" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:interaction.type | Simulação de campo "Tipo de interação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:interaction.date | Simulação de campo "Data da interação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:interaction.summary | Simulação de campo "Resumo da interação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:interaction.insight | Simulação de campo "Insight coletado" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:interaction.sentiment | Simulação de campo "Sentimento do cliente" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:interaction.nextSteps | Simulação de campo "Próximos passos" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:successPlan.goal | Simulação de campo "Objetivo da ação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:successPlan.actionType | Simulação de campo "Tipo de ação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:successPlan.priority | Simulação de campo "Prioridade" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:successPlan.dueDate | Simulação de campo "Prazo" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:successPlan.owner | Simulação de campo "Responsável da ação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:successPlan.metric | Simulação de campo "Métrica de sucesso" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:risk.type | Simulação de campo "Tipo de registro" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:risk.probability | Simulação de campo "Probabilidade" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:risk.estimatedValue | Simulação de campo "Valor estimado" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:risk.reason | Simulação de campo "Motivo" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
+| sim:field:risk.actionPlan | Simulação de campo "Plano de ação" | warn | medium | não | Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite). |
 | sim:filter:boardBase | Simulação de filtro "CSM - Board base" | pass | info | não | Filtro não existe e seria criado (would_create). |
 | sim:filter:clientsAtRisk | Simulação de filtro "CSM - Clientes em risco" | pass | info | não | Filtro não existe e seria criado (would_create). |
 | sim:filter:upcomingRenewals | Simulação de filtro "CSM - Renovações próximas" | pass | info | não | Filtro não existe e seria criado (would_create). |
@@ -171,7 +172,7 @@
 | sim:filter:activeAccounts | Simulação de filtro "CSM - Contas ativas" | pass | info | não | Filtro não existe e seria criado (would_create). |
 | sim:filter:churnedAccounts | Simulação de filtro "CSM - Contas churnadas" | pass | info | não | Filtro não existe e seria criado (would_create). |
 | sim:filter:interactionsThisMonth | Simulação de filtro "CSM - Interações do mês" | pass | info | não | Filtro não existe e seria criado (would_create). |
-| sim:board | Simulação de board Kanban | pass | medium | não | Board não existe e seria criado (would_create), usando filtro base configurado. |
+| sim:board | Simulação de board Kanban | warn | medium | não | Não foi possível simular o board Kanban (falha ao listar boards). Verifique permissões de Jira Software. |
 | sim:dashboard:health | Simulação de dashboard "CSM - Saúde da base" | pass | info | não | Dashboard não existe e seria criado (would_create). |
 | sim:dashboard:relationship | Simulação de dashboard "CSM - Relacionamento" | pass | info | não | Dashboard não existe e seria criado (would_create). |
 | sim:dashboard:growth | Simulação de dashboard "CSM - Crescimento" | pass | info | não | Dashboard não existe e seria criado (would_create). |

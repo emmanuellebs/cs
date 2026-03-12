@@ -48,7 +48,7 @@ export function loadFiltersProvisionConfig(): FiltersProvisionConfig {
       name: 'CSM - Renovações próximas',
       description: 'Contas com renovação próxima.',
       jqlTemplate:
-        'project = {projectKey} AND "Data de renovação" >= startOfDay() AND "Data de renovação" <= endOfDay(+90d) ORDER BY "Data de renovação" ASC',
+        'project = {projectKey} AND "Data de renovação" >= startOfDay() AND "Data de renovação" <= endOfDay("\\u002b90d") ORDER BY "Data de renovação" ASC',
     },
     {
       key: 'noRecentInteractions',

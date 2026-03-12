@@ -11,9 +11,9 @@ async function runJqlCheck() {
     for (const cfg of filtersCfg.filters) {
         const jql = cfg.jqlTemplate.replace(/{projectKey}/g, jira.projectKey);
         try {
-            // Validação estrita via search, sem retornar issues (maxResults=0)
+            // Validação estrita via search/jql (API v3), sem retornar issues (maxResults=1 é mínimo)
             await jiraClient_1.jiraClient.request({
-                url: `/search?jql=${encodeURIComponent(jql)}&maxResults=0&validateQuery=strict`,
+                url: `/search/jql?jql=${encodeURIComponent(jql)}&maxResults=1&validateQuery=strict`,
                 method: 'GET',
             });
             results.push({
