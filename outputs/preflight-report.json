@@ -1,8 +1,8 @@
 {
-  "startedAt": "2026-03-12T15:01:52.737Z",
-  "finishedAt": "2026-03-12T15:02:08.762Z",
-  "mode": "audit",
-  "overallStatus": "rejected",
+  "startedAt": "2026-03-12T15:25:49.381Z",
+  "finishedAt": "2026-03-12T15:26:06.381Z",
+  "mode": "apply",
+  "overallStatus": "approved_with_warnings",
   "checks": [
     {
       "key": "env:jira_base_url",
@@ -103,24 +103,23 @@
     {
       "key": "auth:myself",
       "title": "Validação de autenticação (GET /myself)",
-      "status": "fail",
-      "severity": "critical",
-      "message": "Falha ao autenticar no Jira usando /rest/api/3/myself. Verifique URL, email e API token.",
-      "details": [
-        "Request failed with status code 401"
-      ],
-      "blocking": true
+      "status": "pass",
+      "severity": "info",
+      "message": "Autenticação OK. Usuário: Emmanuelle Barbosa (712020:33175fac-dd20-48c0-ad33-15128aea86ba).",
+      "blocking": false,
+      "metadata": {
+        "accountId": "712020:33175fac-dd20-48c0-ad33-15128aea86ba",
+        "displayName": "Emmanuelle Barbosa",
+        "emailAddress": "emmanuelle@workhub.digital"
+      }
     },
     {
       "key": "endpoint:myself",
       "title": "Endpoint /rest/api/3/myself",
-      "status": "fail",
-      "severity": "critical",
-      "message": "Falha ao acessar endpoint (401).",
-      "details": [
-        "Request failed with status code 401"
-      ],
-      "blocking": true
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
+      "blocking": false
     },
     {
       "key": "endpoint:issuetype",
@@ -157,52 +156,49 @@
     {
       "key": "endpoint:agile-board",
       "title": "Endpoint /rest/agile/1.0/board",
-      "status": "fail",
-      "severity": "high",
-      "message": "Falha ao acessar endpoint (401).",
-      "details": [
-        "Request failed with status code 401"
-      ],
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
       "blocking": false
     },
     {
       "key": "perm:administer",
       "title": "Permissão Administrar Jira (global)",
-      "status": "fail",
-      "severity": "high",
-      "message": "Usuário autenticado aparenta não possuir esta permissão.",
-      "blocking": true
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
     },
     {
       "key": "perm:administer_projects",
       "title": "Permissão Administrar projetos",
-      "status": "fail",
-      "severity": "high",
-      "message": "Usuário autenticado aparenta não possuir esta permissão.",
-      "blocking": true
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
     },
     {
       "key": "perm:browse_projects",
       "title": "Permissão Visualizar projetos",
-      "status": "fail",
-      "severity": "medium",
-      "message": "Usuário autenticado aparenta não possuir esta permissão.",
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
       "blocking": false
     },
     {
       "key": "perm:create_issues",
       "title": "Permissão Criar issues",
-      "status": "fail",
-      "severity": "high",
-      "message": "Usuário autenticado aparenta não possuir esta permissão.",
-      "blocking": true
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
     },
     {
       "key": "perm:manage_sprints_permission",
       "title": "Permissão Gerenciar boards/sprints",
-      "status": "fail",
-      "severity": "medium",
-      "message": "Usuário autenticado aparenta não possuir esta permissão.",
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
       "blocking": false
     },
     {
@@ -639,12 +635,14 @@
     {
       "key": "sim:project",
       "title": "Simulação de projeto",
-      "status": "warn",
-      "severity": "medium",
-      "message": "Projeto não existe. Em modo apply, o script tentaria criá-lo (would_create) se permissões permitirem.",
+      "status": "pass",
+      "severity": "info",
+      "message": "Projeto já existe e seria reutilizado (would_reuse).",
       "blocking": false,
       "metadata": {
-        "outcome": "would_create"
+        "outcome": "would_reuse",
+        "jiraId": "10104",
+        "jiraKey": "CSM"
       }
     },
     {
@@ -727,419 +725,419 @@
     {
       "key": "sim:field:account.segment",
       "title": "Simulação de campo \"Segmento\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.userCount",
       "title": "Simulação de campo \"Quantidade de usuários\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.mrr",
       "title": "Simulação de campo \"MRR\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.healthScore",
       "title": "Simulação de campo \"Health Score\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.nps",
       "title": "Simulação de campo \"NPS\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.status",
       "title": "Simulação de campo \"Status da conta\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.engagement",
       "title": "Simulação de campo \"Engajamento da plataforma\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.csParticipation",
       "title": "Simulação de campo \"Participação CS\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.advocacyProgram",
       "title": "Simulação de campo \"Participa do programa de Advocacy\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.renewalDate",
       "title": "Simulação de campo \"Data de renovação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.product",
       "title": "Simulação de campo \"Produto\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.journeyStartDate",
       "title": "Simulação de campo \"Data de início da jornada\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.launchDate",
       "title": "Simulação de campo \"Data do lançamento\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.trainingDate",
       "title": "Simulação de campo \"Data do treinamento\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.contractDuration",
       "title": "Simulação de campo \"Duração do contrato\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:account.notes",
       "title": "Simulação de campo \"Observações da conta\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:primaryContact.name",
       "title": "Simulação de campo \"Nome do contato principal\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:primaryContact.email",
       "title": "Simulação de campo \"Email do contato principal\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:primaryContact.phone",
       "title": "Simulação de campo \"Telefone do contato principal\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:primaryContact.role",
       "title": "Simulação de campo \"Cargo do contato principal\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:primaryContact.area",
       "title": "Simulação de campo \"Área do contato principal\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:interaction.type",
       "title": "Simulação de campo \"Tipo de interação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:interaction.date",
       "title": "Simulação de campo \"Data da interação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:interaction.summary",
       "title": "Simulação de campo \"Resumo da interação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:interaction.insight",
       "title": "Simulação de campo \"Insight coletado\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:interaction.sentiment",
       "title": "Simulação de campo \"Sentimento do cliente\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:interaction.nextSteps",
       "title": "Simulação de campo \"Próximos passos\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:successPlan.goal",
       "title": "Simulação de campo \"Objetivo da ação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:successPlan.actionType",
       "title": "Simulação de campo \"Tipo de ação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:successPlan.priority",
       "title": "Simulação de campo \"Prioridade\"",
-      "status": "warn",
-      "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo já existe e seria reutilizado (would_reuse).",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_reuse"
       }
     },
     {
       "key": "sim:field:successPlan.dueDate",
       "title": "Simulação de campo \"Prazo\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:successPlan.owner",
       "title": "Simulação de campo \"Responsável da ação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:successPlan.metric",
       "title": "Simulação de campo \"Métrica de sucesso\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:risk.type",
       "title": "Simulação de campo \"Tipo de registro\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:risk.probability",
       "title": "Simulação de campo \"Probabilidade\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:risk.estimatedValue",
       "title": "Simulação de campo \"Valor estimado\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:risk.reason",
       "title": "Simulação de campo \"Motivo\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
       "key": "sim:field:risk.actionPlan",
       "title": "Simulação de campo \"Plano de ação\"",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Campo não existe e não pode ser criado enquanto o projeto não existir (blocked_by_missing_prerequisite).",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
@@ -1244,15 +1242,12 @@
     {
       "key": "sim:board",
       "title": "Simulação de board Kanban",
-      "status": "warn",
+      "status": "pass",
       "severity": "medium",
-      "message": "Não foi possível simular o board Kanban (falha ao listar boards). Verifique permissões de Jira Software.",
-      "details": [
-        "Request failed with status code 401"
-      ],
+      "message": "Board não existe e seria criado (would_create), usando filtro base configurado.",
       "blocking": false,
       "metadata": {
-        "outcome": "blocked_by_missing_prerequisite"
+        "outcome": "would_create"
       }
     },
     {
@@ -1290,9 +1285,9 @@
     }
   ],
   "summary": {
-    "passed": 82,
-    "warnings": 43,
-    "failed": 8,
-    "blockingFailures": 5
+    "passed": 130,
+    "warnings": 3,
+    "failed": 0,
+    "blockingFailures": 0
   }
 }

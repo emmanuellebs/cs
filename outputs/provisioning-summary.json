@@ -1,0 +1,556 @@
+{
+  "project": {
+    "key": "project",
+    "name": "WH - CS Management",
+    "status": "reused",
+    "jiraId": "10104",
+    "jiraKey": "CSM",
+    "details": "Projeto já existente foi reutilizado."
+  },
+  "issueTypes": [
+    {
+      "key": "issuetype:account",
+      "name": "Conta Cliente",
+      "status": "manual",
+      "details": "Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente."
+    },
+    {
+      "key": "issuetype:interaction",
+      "name": "Interação",
+      "status": "manual",
+      "details": "Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente."
+    },
+    {
+      "key": "issuetype:successPlan",
+      "name": "Plano de Sucesso",
+      "status": "manual",
+      "details": "Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente."
+    },
+    {
+      "key": "issuetype:risk",
+      "name": "Risco",
+      "status": "manual",
+      "details": "Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente."
+    },
+    {
+      "key": "issuetype:opportunity",
+      "name": "Oportunidade CS",
+      "status": "manual",
+      "details": "Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente."
+    },
+    {
+      "key": "issuetype:renewal",
+      "name": "Renovação",
+      "status": "manual",
+      "details": "Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente."
+    },
+    {
+      "key": "issuetype:onboardingTask",
+      "name": "Onboarding Task",
+      "status": "manual",
+      "details": "Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente."
+    }
+  ],
+  "fields": [
+    {
+      "key": "field:account.segment",
+      "name": "Segmento",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.userCount",
+      "name": "Quantidade de usuários",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.mrr",
+      "name": "MRR",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.healthScore",
+      "name": "Health Score",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.nps",
+      "name": "NPS",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.status",
+      "name": "Status da conta",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.engagement",
+      "name": "Engajamento da plataforma",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.csParticipation",
+      "name": "Participação CS",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.advocacyProgram",
+      "name": "Participa do programa de Advocacy",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.renewalDate",
+      "name": "Data de renovação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.product",
+      "name": "Produto",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.journeyStartDate",
+      "name": "Data de início da jornada",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.launchDate",
+      "name": "Data do lançamento",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.trainingDate",
+      "name": "Data do treinamento",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.contractDuration",
+      "name": "Duração do contrato",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:account.notes",
+      "name": "Observações da conta",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:primaryContact.name",
+      "name": "Nome do contato principal",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:primaryContact.email",
+      "name": "Email do contato principal",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:primaryContact.phone",
+      "name": "Telefone do contato principal",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:primaryContact.role",
+      "name": "Cargo do contato principal",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:primaryContact.area",
+      "name": "Área do contato principal",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:interaction.type",
+      "name": "Tipo de interação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:interaction.date",
+      "name": "Data da interação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:interaction.summary",
+      "name": "Resumo da interação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:interaction.insight",
+      "name": "Insight coletado",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:interaction.sentiment",
+      "name": "Sentimento do cliente",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:interaction.nextSteps",
+      "name": "Próximos passos",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:successPlan.goal",
+      "name": "Objetivo da ação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:successPlan.actionType",
+      "name": "Tipo de ação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:successPlan.priority",
+      "name": "Prioridade",
+      "status": "reused",
+      "jiraId": "priority",
+      "details": "Campo já existente foi reutilizado."
+    },
+    {
+      "key": "field:successPlan.dueDate",
+      "name": "Prazo",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:successPlan.owner",
+      "name": "Responsável da ação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:successPlan.metric",
+      "name": "Métrica de sucesso",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:risk.type",
+      "name": "Tipo de registro",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:risk.probability",
+      "name": "Probabilidade",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:risk.estimatedValue",
+      "name": "Valor estimado",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:risk.reason",
+      "name": "Motivo",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    },
+    {
+      "key": "field:risk.actionPlan",
+      "name": "Plano de ação",
+      "status": "skipped",
+      "details": "Campo não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado."
+    }
+  ],
+  "fieldContexts": [
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Segmento / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Status da conta / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Engajamento da plataforma / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Participação CS / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Participa do programa de Advocacy / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Produto / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Tipo de interação / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Sentimento do cliente / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Tipo de ação / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:priority:Contexto CS",
+      "name": "Prioridade / Contexto CS",
+      "status": "failed",
+      "details": "Falha ao garantir contexto de campo.",
+      "error": "Request failed with status code 404"
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Tipo de registro / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    },
+    {
+      "key": "fieldContext:unknown:Contexto CS",
+      "name": "Probabilidade / Contexto CS",
+      "status": "manual",
+      "details": "Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente."
+    }
+  ],
+  "fieldOptions": [
+    {
+      "key": "fieldOption:priority:unknown:",
+      "name": "Prioridade / ",
+      "status": "manual",
+      "details": "Contexto não disponível. Opções do campo precisam ser configuradas manualmente."
+    }
+  ],
+  "filters": [
+    {
+      "key": "filter:boardBase",
+      "name": "CSM - Board base",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM ORDER BY updated DESC"
+      }
+    },
+    {
+      "key": "filter:clientsAtRisk",
+      "name": "CSM - Clientes em risco",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND \"Status da conta\" = \"Risco\" ORDER BY updated DESC"
+      }
+    },
+    {
+      "key": "filter:upcomingRenewals",
+      "name": "CSM - Renovações próximas",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND \"Data de renovação\" >= startOfDay() AND \"Data de renovação\" <= endOfDay(\"\\u002b90d\") ORDER BY \"Data de renovação\" ASC"
+      }
+    },
+    {
+      "key": "filter:noRecentInteractions",
+      "name": "CSM - Clientes sem interação recente",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\" AND updated <= -60d ORDER BY updated ASC"
+      }
+    },
+    {
+      "key": "filter:openOpportunities",
+      "name": "CSM - Oportunidades em aberto",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Oportunidade CS\" AND statusCategory != Done ORDER BY created DESC"
+      }
+    },
+    {
+      "key": "filter:accountsByLifecycle",
+      "name": "CSM - Contas por estágio do lifecycle",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\""
+      }
+    },
+    {
+      "key": "filter:activeAccounts",
+      "name": "CSM - Contas ativas",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\" AND \"Status da conta\" = \"Ativo\""
+      }
+    },
+    {
+      "key": "filter:churnedAccounts",
+      "name": "CSM - Contas churnadas",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\" AND \"Status da conta\" = \"Churn\""
+      }
+    },
+    {
+      "key": "filter:interactionsThisMonth",
+      "name": "CSM - Interações do mês",
+      "status": "skipped",
+      "details": "Filtro não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado.",
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Interação\" AND \"Data da interação\" >= startOfMonth() ORDER BY \"Data da interação\" DESC"
+      }
+    }
+  ],
+  "boards": [
+    {
+      "key": "board:kanban",
+      "status": "manual",
+      "name": "CSM - Lifecycle Kanban",
+      "details": "Sem filtro base disponível. Crie manualmente um board Kanban com filtro \"project = {projectKey}\".",
+      "metadata": {
+        "suggestedJql": "project = CSM ORDER BY updated DESC"
+      }
+    }
+  ],
+  "dashboards": [
+    {
+      "key": "dashboard:health",
+      "name": "CSM - Saúde da base",
+      "status": "skipped",
+      "details": "Dashboard não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado vazio e gadgets serão configurados manualmente.",
+      "metadata": {
+        "gadgetBlueprints": [
+          {
+            "name": "Clientes por health score",
+            "filterName": "CSM - Contas por estágio do lifecycle",
+            "gadgetTypeHint": "Gráfico de barras por faixas de Health Score"
+          },
+          {
+            "name": "Clientes em risco",
+            "filterName": "CSM - Clientes em risco",
+            "gadgetTypeHint": "Issue statistics por Status da conta"
+          },
+          {
+            "name": "Clientes com baixa atividade",
+            "filterName": "CSM - Clientes sem interação recente",
+            "gadgetTypeHint": "Filter results"
+          },
+          {
+            "name": "Clientes sem contato há 60 dias",
+            "filterName": "CSM - Clientes sem interação recente",
+            "gadgetTypeHint": "Filter results"
+          }
+        ]
+      }
+    },
+    {
+      "key": "dashboard:relationship",
+      "name": "CSM - Relacionamento",
+      "status": "skipped",
+      "details": "Dashboard não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado vazio e gadgets serão configurados manualmente.",
+      "metadata": {
+        "gadgetBlueprints": [
+          {
+            "name": "Interações por mês",
+            "filterName": "CSM - Interações do mês",
+            "gadgetTypeHint": "Two dimensional filter statistics (por tipo de interação e mês)"
+          },
+          {
+            "name": "Clientes sem reunião",
+            "filterName": "CSM - Clientes sem interação recente",
+            "gadgetTypeHint": "Filter results"
+          },
+          {
+            "name": "Reuniões realizadas",
+            "filterName": "CSM - Interações do mês",
+            "gadgetTypeHint": "Filter statistics por Tipo de interação = Reunião"
+          },
+          {
+            "name": "Participação em eventos",
+            "filterName": "CSM - Interações do mês",
+            "gadgetTypeHint": "Filter statistics por Tipo de interação = Evento"
+          }
+        ]
+      }
+    },
+    {
+      "key": "dashboard:growth",
+      "name": "CSM - Crescimento",
+      "status": "skipped",
+      "details": "Dashboard não existe e não foi criado em modo audit/dry-run. Em modo apply com dryRun=false, será criado vazio e gadgets serão configurados manualmente.",
+      "metadata": {
+        "gadgetBlueprints": [
+          {
+            "name": "Expansões em andamento",
+            "filterName": "CSM - Oportunidades em aberto",
+            "gadgetTypeHint": "Filter results"
+          },
+          {
+            "name": "Indicações recebidas",
+            "filterName": "CSM - Oportunidades em aberto",
+            "gadgetTypeHint": "Filter statistics por Tipo de registro = Indicação"
+          },
+          {
+            "name": "Clientes potenciais para case",
+            "filterName": "CSM - Contas ativas",
+            "gadgetTypeHint": "Filter results com Health Score alto"
+          },
+          {
+            "name": "Contratos renovados",
+            "filterName": "CSM - Contas ativas",
+            "gadgetTypeHint": "Filter statistics por Status da conta = Renovado"
+          }
+        ]
+      }
+    }
+  ],
+  "sampleIssues": [],
+  "manualSteps": []
+}
