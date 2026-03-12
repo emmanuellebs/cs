@@ -1,0 +1,1345 @@
+{
+  "startedAt": "2026-03-12T13:40:13.183Z",
+  "finishedAt": "2026-03-12T13:40:23.597Z",
+  "mode": "apply",
+  "overallStatus": "rejected",
+  "checks": [
+    {
+      "key": "env:jira_base_url",
+      "title": "Variável de ambiente obrigatória: JIRA_BASE_URL",
+      "status": "pass",
+      "severity": "info",
+      "message": "JIRA_BASE_URL está definida.",
+      "blocking": false
+    },
+    {
+      "key": "env:jira_email",
+      "title": "Variável de ambiente obrigatória: JIRA_EMAIL",
+      "status": "pass",
+      "severity": "info",
+      "message": "JIRA_EMAIL está definida.",
+      "blocking": false
+    },
+    {
+      "key": "env:jira_api_token",
+      "title": "Variável de ambiente obrigatória: JIRA_API_TOKEN",
+      "status": "pass",
+      "severity": "info",
+      "message": "JIRA_API_TOKEN está definida.",
+      "blocking": false
+    },
+    {
+      "key": "env:jira_project_key",
+      "title": "Variável de ambiente obrigatória: JIRA_PROJECT_KEY",
+      "status": "pass",
+      "severity": "info",
+      "message": "JIRA_PROJECT_KEY está definida.",
+      "blocking": false
+    },
+    {
+      "key": "env:jira_project_name",
+      "title": "Variável de ambiente obrigatória: JIRA_PROJECT_NAME",
+      "status": "pass",
+      "severity": "info",
+      "message": "JIRA_PROJECT_NAME está definida.",
+      "blocking": false
+    },
+    {
+      "key": "env:project-template",
+      "title": "Configuração de template de projeto",
+      "status": "pass",
+      "severity": "info",
+      "message": "Template de projeto configurado (business / com.atlassian.jira-core-project-templates:jira-core-project-management).",
+      "blocking": false
+    },
+    {
+      "key": "env:project-lead",
+      "title": "Project lead account id",
+      "status": "pass",
+      "severity": "info",
+      "message": "JIRA_PROJECT_LEAD_ACCOUNT_ID configurado.",
+      "blocking": false
+    },
+    {
+      "key": "env:project-key-format",
+      "title": "Formato da project key",
+      "status": "pass",
+      "severity": "info",
+      "message": "JIRA_PROJECT_KEY parece válido para Jira (apenas letras maiúsculas e dígitos, iniciando com letra).",
+      "blocking": false
+    },
+    {
+      "key": "config:issuetypes-load",
+      "title": "Carregamento de configuração de issue types",
+      "status": "pass",
+      "severity": "info",
+      "message": "Foram carregados 7 issue types lógicos.",
+      "blocking": false
+    },
+    {
+      "key": "config:fields-load",
+      "title": "Carregamento de configuração de campos",
+      "status": "pass",
+      "severity": "info",
+      "message": "Foram carregados 38 campos lógicos.",
+      "blocking": false
+    },
+    {
+      "key": "config:filters-load",
+      "title": "Carregamento de configuração de filtros",
+      "status": "pass",
+      "severity": "info",
+      "message": "Foram carregados 9 filtros configurados.",
+      "blocking": false
+    },
+    {
+      "key": "config:dashboards-load",
+      "title": "Carregamento de configuração de dashboards",
+      "status": "pass",
+      "severity": "info",
+      "message": "Foram carregados 3 dashboards configurados.",
+      "blocking": false
+    },
+    {
+      "key": "auth:myself",
+      "title": "Validação de autenticação (GET /myself)",
+      "status": "pass",
+      "severity": "info",
+      "message": "Autenticação OK. Usuário: Emmanuelle Barbosa (712020:33175fac-dd20-48c0-ad33-15128aea86ba).",
+      "blocking": false,
+      "metadata": {
+        "accountId": "712020:33175fac-dd20-48c0-ad33-15128aea86ba",
+        "displayName": "Emmanuelle Barbosa",
+        "emailAddress": "emmanuelle@workhub.digital"
+      }
+    },
+    {
+      "key": "endpoint:myself",
+      "title": "Endpoint /rest/api/3/myself",
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
+      "blocking": false
+    },
+    {
+      "key": "endpoint:issuetype",
+      "title": "Endpoint /rest/api/3/issuetype",
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
+      "blocking": false
+    },
+    {
+      "key": "endpoint:field",
+      "title": "Endpoint /rest/api/3/field",
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
+      "blocking": false
+    },
+    {
+      "key": "endpoint:filter-search",
+      "title": "Endpoint /rest/api/3/filter/search",
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
+      "blocking": false
+    },
+    {
+      "key": "endpoint:dashboard",
+      "title": "Endpoint /rest/api/3/dashboard",
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
+      "blocking": false
+    },
+    {
+      "key": "endpoint:agile-board",
+      "title": "Endpoint /rest/agile/1.0/board",
+      "status": "pass",
+      "severity": "info",
+      "message": "Endpoint respondeu com status 200.",
+      "blocking": false
+    },
+    {
+      "key": "perm:administer",
+      "title": "Permissão Administrar Jira (global)",
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
+    },
+    {
+      "key": "perm:administer_projects",
+      "title": "Permissão Administrar projetos",
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
+    },
+    {
+      "key": "perm:browse_projects",
+      "title": "Permissão Visualizar projetos",
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
+    },
+    {
+      "key": "perm:create_issues",
+      "title": "Permissão Criar issues",
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
+    },
+    {
+      "key": "perm:manage_sprints_permission",
+      "title": "Permissão Gerenciar boards/sprints",
+      "status": "pass",
+      "severity": "info",
+      "message": "Permissão aparenta estar disponível para o usuário autenticado.",
+      "blocking": false
+    },
+    {
+      "key": "config:field-select-no-options:account.segment",
+      "title": "Campo select sem opções configuradas",
+      "status": "fail",
+      "severity": "high",
+      "message": "Campo select \"Segmento\" não possui opções definidas.",
+      "blocking": true
+    },
+    {
+      "key": "config:field-select-no-options:account.product",
+      "title": "Campo select sem opções configuradas",
+      "status": "fail",
+      "severity": "high",
+      "message": "Campo select \"Produto\" não possui opções definidas.",
+      "blocking": true
+    },
+    {
+      "key": "config:templates-dir-missing",
+      "title": "Diretório de templates de tickets",
+      "status": "warn",
+      "severity": "low",
+      "message": "Diretório src/templates/ticketDescriptions não encontrado. Templates de descrição serão documentados apenas em texto.",
+      "blocking": false
+    },
+    {
+      "key": "dep:board-base-filter",
+      "title": "Filtro base para board Kanban",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro base identificado: CSM - Board base.",
+      "blocking": false
+    },
+    {
+      "key": "dep:fields-projectid",
+      "title": "Dependência de projectId para campos/contextos",
+      "status": "warn",
+      "severity": "low",
+      "message": "Campos customizados e contextos dependem de um projectId real em tempo de execução. Se o projeto não existir, estes passos serão marcados como manuais.",
+      "blocking": false,
+      "metadata": {
+        "projectKey": "CSM",
+        "totalFields": 38
+      }
+    },
+    {
+      "key": "jql:boardBase",
+      "title": "Validação de JQL para filtro \"CSM - Board base\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Board base\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM ORDER BY updated DESC",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:clientsAtRisk",
+      "title": "Validação de JQL para filtro \"CSM - Clientes em risco\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Clientes em risco\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND \"Status da conta\" = \"Risco\" ORDER BY updated DESC",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:upcomingRenewals",
+      "title": "Validação de JQL para filtro \"CSM - Renovações próximas\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Renovações próximas\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND \"Data de renovação\" >= startOfDay() AND \"Data de renovação\" <= endOfDay(+90d) ORDER BY \"Data de renovação\" ASC",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:noRecentInteractions",
+      "title": "Validação de JQL para filtro \"CSM - Clientes sem interação recente\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Clientes sem interação recente\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\" AND updated <= -60d ORDER BY updated ASC",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:openOpportunities",
+      "title": "Validação de JQL para filtro \"CSM - Oportunidades em aberto\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Oportunidades em aberto\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Oportunidade CS\" AND statusCategory != Done ORDER BY created DESC",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:accountsByLifecycle",
+      "title": "Validação de JQL para filtro \"CSM - Contas por estágio do lifecycle\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Contas por estágio do lifecycle\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\"",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:activeAccounts",
+      "title": "Validação de JQL para filtro \"CSM - Contas ativas\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Contas ativas\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\" AND \"Status da conta\" = \"Ativo\"",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:churnedAccounts",
+      "title": "Validação de JQL para filtro \"CSM - Contas churnadas\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Contas churnadas\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Conta Cliente\" AND \"Status da conta\" = \"Churn\"",
+        "status": 410
+      }
+    },
+    {
+      "key": "jql:interactionsThisMonth",
+      "title": "Validação de JQL para filtro \"CSM - Interações do mês\"",
+      "status": "warn",
+      "severity": "medium",
+      "message": "Erro ao validar JQL para filtro \"CSM - Interações do mês\".",
+      "details": [
+        "A API solicitada foi removida. Migre para a API /rest/api/3/search/jql. Uma diretriz de migração completa está disponível em https://developer.atlassian.com/changelog/#CHANGE-2046"
+      ],
+      "blocking": false,
+      "metadata": {
+        "jql": "project = CSM AND issuetype = \"Interação\" AND \"Data da interação\" >= startOfMonth() ORDER BY \"Data da interação\" DESC",
+        "status": 410
+      }
+    },
+    {
+      "key": "fieldmodel:account.segment",
+      "title": "Validação de modelo de campo \"Segmento\"",
+      "status": "warn",
+      "severity": "low",
+      "message": "Campo select \"Segmento\" não possui opções definidas (ver configCheck).",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.userCount",
+      "title": "Validação de modelo de campo \"Quantidade de usuários\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Quantidade de usuários\" com tipo lógico \"number\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.mrr",
+      "title": "Validação de modelo de campo \"MRR\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"MRR\" com tipo lógico \"number\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.healthScore",
+      "title": "Validação de modelo de campo \"Health Score\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Health Score\" com tipo lógico \"number\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.nps",
+      "title": "Validação de modelo de campo \"NPS\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"NPS\" com tipo lógico \"number\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.status",
+      "title": "Validação de modelo de campo \"Status da conta\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Status da conta\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.engagement",
+      "title": "Validação de modelo de campo \"Engajamento da plataforma\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Engajamento da plataforma\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.csParticipation",
+      "title": "Validação de modelo de campo \"Participação CS\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Participação CS\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.advocacyProgram",
+      "title": "Validação de modelo de campo \"Participa do programa de Advocacy\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Participa do programa de Advocacy\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.renewalDate",
+      "title": "Validação de modelo de campo \"Data de renovação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Data de renovação\" com tipo lógico \"date\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.product",
+      "title": "Validação de modelo de campo \"Produto\"",
+      "status": "warn",
+      "severity": "low",
+      "message": "Campo select \"Produto\" não possui opções definidas (ver configCheck).",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.journeyStartDate",
+      "title": "Validação de modelo de campo \"Data de início da jornada\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Data de início da jornada\" com tipo lógico \"date\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.launchDate",
+      "title": "Validação de modelo de campo \"Data do lançamento\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Data do lançamento\" com tipo lógico \"date\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.trainingDate",
+      "title": "Validação de modelo de campo \"Data do treinamento\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Data do treinamento\" com tipo lógico \"date\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.contractDuration",
+      "title": "Validação de modelo de campo \"Duração do contrato\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Duração do contrato\" com tipo lógico \"text\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:account.notes",
+      "title": "Validação de modelo de campo \"Observações da conta\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Observações da conta\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:primaryContact.name",
+      "title": "Validação de modelo de campo \"Nome do contato principal\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Nome do contato principal\" com tipo lógico \"text\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:primaryContact.email",
+      "title": "Validação de modelo de campo \"Email do contato principal\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Email do contato principal\" com tipo lógico \"text\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:primaryContact.phone",
+      "title": "Validação de modelo de campo \"Telefone do contato principal\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Telefone do contato principal\" com tipo lógico \"text\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:primaryContact.role",
+      "title": "Validação de modelo de campo \"Cargo do contato principal\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Cargo do contato principal\" com tipo lógico \"text\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:primaryContact.area",
+      "title": "Validação de modelo de campo \"Área do contato principal\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Área do contato principal\" com tipo lógico \"text\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:interaction.type",
+      "title": "Validação de modelo de campo \"Tipo de interação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Tipo de interação\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:interaction.date",
+      "title": "Validação de modelo de campo \"Data da interação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Data da interação\" com tipo lógico \"date\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:interaction.summary",
+      "title": "Validação de modelo de campo \"Resumo da interação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Resumo da interação\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:interaction.insight",
+      "title": "Validação de modelo de campo \"Insight coletado\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Insight coletado\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:interaction.sentiment",
+      "title": "Validação de modelo de campo \"Sentimento do cliente\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Sentimento do cliente\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:interaction.nextSteps",
+      "title": "Validação de modelo de campo \"Próximos passos\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Próximos passos\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:successPlan.goal",
+      "title": "Validação de modelo de campo \"Objetivo da ação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Objetivo da ação\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:successPlan.actionType",
+      "title": "Validação de modelo de campo \"Tipo de ação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Tipo de ação\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:successPlan.priority",
+      "title": "Validação de modelo de campo \"Prioridade\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Prioridade\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:successPlan.dueDate",
+      "title": "Validação de modelo de campo \"Prazo\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Prazo\" com tipo lógico \"date\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:successPlan.owner",
+      "title": "Validação de modelo de campo \"Responsável da ação\"",
+      "status": "warn",
+      "severity": "low",
+      "message": "Campo userPicker pode ter limitações de configuração por API; confirme manualmente o comportamento desejado.",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:successPlan.metric",
+      "title": "Validação de modelo de campo \"Métrica de sucesso\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Métrica de sucesso\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:risk.type",
+      "title": "Validação de modelo de campo \"Tipo de registro\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Tipo de registro\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:risk.probability",
+      "title": "Validação de modelo de campo \"Probabilidade\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Probabilidade\" com tipo lógico \"select\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:risk.estimatedValue",
+      "title": "Validação de modelo de campo \"Valor estimado\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Valor estimado\" com tipo lógico \"number\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:risk.reason",
+      "title": "Validação de modelo de campo \"Motivo\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Motivo\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "fieldmodel:risk.actionPlan",
+      "title": "Validação de modelo de campo \"Plano de ação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo \"Plano de ação\" com tipo lógico \"paragraph\".",
+      "blocking": false
+    },
+    {
+      "key": "sim:project",
+      "title": "Simulação de projeto",
+      "status": "pass",
+      "severity": "info",
+      "message": "Projeto já existe e seria reutilizado (would_reuse).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_reuse",
+        "jiraId": "10104",
+        "jiraKey": "CSM"
+      }
+    },
+    {
+      "key": "sim:issuetype:account",
+      "title": "Simulação de issue type \"Conta Cliente\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:issuetype:interaction",
+      "title": "Simulação de issue type \"Interação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:issuetype:successPlan",
+      "title": "Simulação de issue type \"Plano de Sucesso\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:issuetype:risk",
+      "title": "Simulação de issue type \"Risco\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:issuetype:opportunity",
+      "title": "Simulação de issue type \"Oportunidade CS\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:issuetype:renewal",
+      "title": "Simulação de issue type \"Renovação\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:issuetype:onboardingTask",
+      "title": "Simulação de issue type \"Onboarding Task\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Issue type não existe e seria criado (would_create) ou mapeado para fallback, conforme config.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.segment",
+      "title": "Simulação de campo \"Segmento\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.userCount",
+      "title": "Simulação de campo \"Quantidade de usuários\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.mrr",
+      "title": "Simulação de campo \"MRR\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.healthScore",
+      "title": "Simulação de campo \"Health Score\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.nps",
+      "title": "Simulação de campo \"NPS\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.status",
+      "title": "Simulação de campo \"Status da conta\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.engagement",
+      "title": "Simulação de campo \"Engajamento da plataforma\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.csParticipation",
+      "title": "Simulação de campo \"Participação CS\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.advocacyProgram",
+      "title": "Simulação de campo \"Participa do programa de Advocacy\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.renewalDate",
+      "title": "Simulação de campo \"Data de renovação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.product",
+      "title": "Simulação de campo \"Produto\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.journeyStartDate",
+      "title": "Simulação de campo \"Data de início da jornada\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.launchDate",
+      "title": "Simulação de campo \"Data do lançamento\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.trainingDate",
+      "title": "Simulação de campo \"Data do treinamento\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.contractDuration",
+      "title": "Simulação de campo \"Duração do contrato\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:account.notes",
+      "title": "Simulação de campo \"Observações da conta\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:primaryContact.name",
+      "title": "Simulação de campo \"Nome do contato principal\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:primaryContact.email",
+      "title": "Simulação de campo \"Email do contato principal\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:primaryContact.phone",
+      "title": "Simulação de campo \"Telefone do contato principal\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:primaryContact.role",
+      "title": "Simulação de campo \"Cargo do contato principal\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:primaryContact.area",
+      "title": "Simulação de campo \"Área do contato principal\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:interaction.type",
+      "title": "Simulação de campo \"Tipo de interação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:interaction.date",
+      "title": "Simulação de campo \"Data da interação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:interaction.summary",
+      "title": "Simulação de campo \"Resumo da interação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:interaction.insight",
+      "title": "Simulação de campo \"Insight coletado\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:interaction.sentiment",
+      "title": "Simulação de campo \"Sentimento do cliente\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:interaction.nextSteps",
+      "title": "Simulação de campo \"Próximos passos\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:successPlan.goal",
+      "title": "Simulação de campo \"Objetivo da ação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:successPlan.actionType",
+      "title": "Simulação de campo \"Tipo de ação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:successPlan.priority",
+      "title": "Simulação de campo \"Prioridade\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Campo já existe e seria reutilizado (would_reuse).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_reuse"
+      }
+    },
+    {
+      "key": "sim:field:successPlan.dueDate",
+      "title": "Simulação de campo \"Prazo\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:successPlan.owner",
+      "title": "Simulação de campo \"Responsável da ação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:successPlan.metric",
+      "title": "Simulação de campo \"Métrica de sucesso\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:risk.type",
+      "title": "Simulação de campo \"Tipo de registro\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:risk.probability",
+      "title": "Simulação de campo \"Probabilidade\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:risk.estimatedValue",
+      "title": "Simulação de campo \"Valor estimado\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:risk.reason",
+      "title": "Simulação de campo \"Motivo\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:field:risk.actionPlan",
+      "title": "Simulação de campo \"Plano de ação\"",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Campo não existe e seria criado (would_create), com contexto e opções criados conforme necessário.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:boardBase",
+      "title": "Simulação de filtro \"CSM - Board base\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:clientsAtRisk",
+      "title": "Simulação de filtro \"CSM - Clientes em risco\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:upcomingRenewals",
+      "title": "Simulação de filtro \"CSM - Renovações próximas\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:noRecentInteractions",
+      "title": "Simulação de filtro \"CSM - Clientes sem interação recente\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:openOpportunities",
+      "title": "Simulação de filtro \"CSM - Oportunidades em aberto\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:accountsByLifecycle",
+      "title": "Simulação de filtro \"CSM - Contas por estágio do lifecycle\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:activeAccounts",
+      "title": "Simulação de filtro \"CSM - Contas ativas\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:churnedAccounts",
+      "title": "Simulação de filtro \"CSM - Contas churnadas\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:filter:interactionsThisMonth",
+      "title": "Simulação de filtro \"CSM - Interações do mês\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Filtro não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:board",
+      "title": "Simulação de board Kanban",
+      "status": "pass",
+      "severity": "medium",
+      "message": "Board não existe e seria criado (would_create), usando filtro base configurado.",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:dashboard:health",
+      "title": "Simulação de dashboard \"CSM - Saúde da base\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Dashboard não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:dashboard:relationship",
+      "title": "Simulação de dashboard \"CSM - Relacionamento\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Dashboard não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    },
+    {
+      "key": "sim:dashboard:growth",
+      "title": "Simulação de dashboard \"CSM - Crescimento\"",
+      "status": "pass",
+      "severity": "info",
+      "message": "Dashboard não existe e seria criado (would_create).",
+      "blocking": false,
+      "metadata": {
+        "outcome": "would_create"
+      }
+    }
+  ],
+  "summary": {
+    "passed": 119,
+    "warnings": 14,
+    "failed": 2,
+    "blockingFailures": 2
+  }
+}

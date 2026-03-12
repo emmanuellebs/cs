@@ -1,0 +1,30 @@
+{
+  "name": "jira-cs-provisioning",
+  "version": "1.0.0",
+  "description": "Provisionador automatizado de projeto Jira Cloud para Customer Success (CS), com modos audit-only e apply.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js --mode=apply",
+    "audit": "node dist/index.js --mode=audit",
+    "dev:apply": "ts-node src/index.ts --mode=apply",
+    "dev:audit": "ts-node src/index.ts --mode=audit"
+  },
+  "keywords": [
+    "jira",
+    "customer-success",
+    "provisioning",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.0"
+  }
+}

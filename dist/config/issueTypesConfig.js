@@ -1,0 +1,50 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loadIssueTypesProvisionConfig = loadIssueTypesProvisionConfig;
+function loadIssueTypesProvisionConfig() {
+    const issueTypes = [
+        {
+            key: 'account',
+            name: 'Conta Cliente',
+            description: 'Representa uma conta de cliente gerenciada pelo time de Customer Success.',
+            fallbackStandardTypeName: 'Task',
+        },
+        {
+            key: 'interaction',
+            name: 'Interação',
+            description: 'Registro de interação com o cliente (reunião, suporte, feedback, etc.).',
+            fallbackStandardTypeName: 'Task',
+        },
+        {
+            key: 'successPlan',
+            name: 'Plano de Sucesso',
+            description: 'Plano de sucesso do cliente, com objetivos, ações e métricas.',
+            fallbackStandardTypeName: 'Task',
+        },
+        {
+            key: 'risk',
+            name: 'Risco',
+            description: 'Registro de risco de churn ou outro risco relevante para a conta.',
+            fallbackStandardTypeName: 'Task',
+        },
+        {
+            key: 'opportunity',
+            name: 'Oportunidade CS',
+            description: 'Oportunidade de expansão, indicação ou outro ganho de negócio.',
+            fallbackStandardTypeName: 'Task',
+        },
+        {
+            key: 'renewal',
+            name: 'Renovação',
+            description: 'Registro do processo de renovação contratual da conta.',
+            fallbackStandardTypeName: 'Task',
+        },
+        {
+            key: 'onboardingTask',
+            name: 'Onboarding Task',
+            description: 'Tarefa operacional de onboarding do cliente.',
+            fallbackStandardTypeName: 'Task',
+        },
+    ];
+    return { issueTypes };
+}
