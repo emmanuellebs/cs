@@ -5,8 +5,8 @@ function loadIssueTypesProvisionConfig() {
     const issueTypes = [
         {
             key: 'account',
-            name: 'Conta Cliente',
-            description: 'Representa uma conta de cliente gerenciada pelo time de Customer Success.',
+            name: 'Cliente',
+            description: 'Representa um cliente gerenciado pelo time de Customer Success.',
             fallbackStandardTypeName: 'Task',
         },
         {
@@ -29,7 +29,7 @@ function loadIssueTypesProvisionConfig() {
         },
         {
             key: 'opportunity',
-            name: 'Oportunidade CS',
+            name: 'Oportunidade',
             description: 'Oportunidade de expansão, indicação ou outro ganho de negócio.',
             fallbackStandardTypeName: 'Task',
         },
@@ -37,12 +37,6 @@ function loadIssueTypesProvisionConfig() {
             key: 'renewal',
             name: 'Renovação',
             description: 'Registro do processo de renovação contratual da conta.',
-            fallbackStandardTypeName: 'Task',
-        },
-        {
-            key: 'onboardingTask',
-            name: 'Onboarding Task',
-            description: 'Tarefa operacional de onboarding do cliente.',
             fallbackStandardTypeName: 'Task',
         },
     ];

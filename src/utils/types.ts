@@ -1,10 +1,11 @@
-export type ProvisionStatus = 'created' | 'reused' | 'skipped' | 'manual' | 'failed';
+export type ProvisionStatus = 'created' | 'reused' | 'skipped' | 'manual' | 'failed' | 'partial';
 
 export type ExecutionMode = 'preflight' | 'audit' | 'apply';
 
 export interface RuntimeConfig {
   mode: ExecutionMode;
   dryRun: boolean;
+  createSampleData: boolean;
 }
 
 export interface ProvisioningItemResult {
@@ -25,6 +26,7 @@ export interface ProvisioningReport {
   fields: ProvisioningItemResult[];
   fieldContexts: ProvisioningItemResult[];
   fieldOptions: ProvisioningItemResult[];
+  fieldScreenAssociations: ProvisioningItemResult[];
   filters: ProvisioningItemResult[];
   boards: ProvisioningItemResult[];
   dashboards: ProvisioningItemResult[];
@@ -39,6 +41,7 @@ export function createEmptyReport(): ProvisioningReport {
     fields: [],
     fieldContexts: [],
     fieldOptions: [],
+    fieldScreenAssociations: [],
     filters: [],
     boards: [],
     dashboards: [],

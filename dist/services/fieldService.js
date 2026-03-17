@@ -40,6 +40,37 @@ function mapKindToTypeAndSearcher(kind) {
             };
     }
 }
+function getIssueTypeIdsForField(field, issueTypeMap) {
+    if (!issueTypeMap)
+        return [];
+    const ids = [];
+    const pushIf = (key) => {
+        const value = issueTypeMap[key];
+        if (value) {
+            ids.push(value);
+        }
+    };
+    switch (field.group) {
+        case 'account':
+        case 'primaryContact':
+        case 'csOperation':
+            pushIf('account');
+            break;
+        case 'interaction':
+            pushIf('interaction');
+            break;
+        case 'successPlan':
+            pushIf('successPlan');
+            break;
+        case 'riskOpportunity':
+            pushIf('risk');
+            pushIf('opportunity');
+            break;
+        default:
+            break;
+    }
+    return Array.from(new Set(ids));
+}
 async function listAllFields() {
     const resp = await jiraClient_1.jiraClient.request({
         url: '/field',
@@ -92,7 +123,7 @@ async function listFieldContexts(fieldId) {
     });
     return resp.data.values || [];
 }
-async function createFieldContext(field, projectId) {
+async function createFieldContext(field, projectId, issueTypeIds) {
     const name = `Contexto CS - ${field.name}`;
     const resp = await jiraClient_1.jiraClient.request({
         url: `/field/${encodeURIComponent(field.id)}/context`,
@@ -100,6 +131,18 @@ async function createFieldContext(field, projectId) {
         data: {
             name,
             projectIds: [projectId],
+            issueTypeIds: issueTypeIds.length ? issueTypeIds : undefined,
+        },
+    });
+    return resp.data;
+}
+async function updateFieldContext(fieldId, contextId, projectId, issueTypeIds) {
+    const resp = await jiraClient_1.jiraClient.request({
+        url: `/field/${encodeURIComponent(fieldId)}/context/${encodeURIComponent(contextId)}`,
+        method: 'PUT',
+        data: {
+            projectIds: [projectId],
+            issueTypeIds: issueTypeIds.length ? issueTypeIds : undefined,
         },
     });
     return resp.data;
@@ -128,9 +171,10 @@ async function createFieldOptions(fieldId, contextId, values) {
  * Garante campo, contexto por projeto e opções (para campos select).
  * Não lança exceção em caso de falha isolada; registra status no resultado.
  */
-async function ensureFieldsForProject(projectId) {
+async function ensureFieldsForProject(projectId, issueTypeMap) {
     const config = (0, fieldsConfig_1.loadFieldsProvisionConfig)();
     const mode = jiraClient_1.jiraClient.getMode();
+    logger.info(`[LOAD] fieldsConfig.ts loaded (${config.fields.length} campos)`);
     const allFields = await listAllFields();
     const fieldResults = [];
     const contextResults = [];
@@ -140,7 +184,7 @@ async function ensureFieldsForProject(projectId) {
             // 1) Campo
             let field = allFields.find((f) => f.name === cfg.name) || null;
             if (field) {
-                logger.info(`Campo reutilizado: ${cfg.name} (${field.id})`);
+                logger.info(`[RESOLVE] Campo reutilizado: ${cfg.name} (${field.id})`);
                 fieldResults.push(buildFieldResult(cfg, 'reused', {
                     jiraId: field.id,
                     details: 'Campo já existente foi reutilizado.',
@@ -156,7 +200,7 @@ async function ensureFieldsForProject(projectId) {
                 try {
                     field = await createField(cfg);
                     allFields.push(field);
-                    logger.info(`Campo criado: ${cfg.name} (${field.id})`);
+                    logger.info(`[CREATE] Field created: ${cfg.name} (${field.id})`);
                     fieldResults.push(buildFieldResult(cfg, 'created', {
                         jiraId: field.id,
                         details: 'Campo criado via API.',
@@ -181,12 +225,28 @@ async function ensureFieldsForProject(projectId) {
             }
             // 2) Contexto específico para o projeto (apenas para selects, mas deixamos pronto para outros se necessário)
             let context = null;
+            const issueTypeIds = getIssueTypeIdsForField(cfg, issueTypeMap);
             try {
                 const contexts = await listFieldContexts(field.id);
                 context =
-                    contexts.find((c) => c.projectIds && c.projectIds.includes(projectId)) || null;
+                    contexts.find((c) => c.projectIds?.includes(projectId) &&
+                        (!issueTypeIds.length ||
+                            issueTypeIds.every((id) => (c.issueTypeIds || []).includes(id)))) || null;
+                const globalContext = contexts.find((c) => (!c.projectIds || c.projectIds.length === 0) &&
+                    (!c.issueTypeIds || c.issueTypeIds.length === 0)) || null;
+                // Se existe apenas contexto global, tentar restringir ao projeto/issue type
+                if (!context && globalContext && !(mode.mode === 'audit' || mode.dryRun)) {
+                    try {
+                        const updated = await updateFieldContext(field.id, globalContext.id, projectId, issueTypeIds);
+                        context = updated;
+                        logger.info(`[LINK] Contexto global do campo ${cfg.name} restringido ao projeto ${projectId} (${updated.id})`);
+                    }
+                    catch (err) {
+                        logger.warn(`[WARN] Não foi possível restringir contexto global do campo ${cfg.name}. Pode permanecer visível em outros projetos.`);
+                    }
+                }
                 if (context) {
-                    logger.info(`Contexto de campo reutilizado para ${cfg.name} no projeto ${projectId}: ${context.id}`);
+                    logger.info(`[RESOLVE] Contexto reutilizado para ${cfg.name} no projeto ${projectId}: ${context.id}`);
                     contextResults.push(buildContextResult(field.id, cfg.name, context.name, 'reused', {
                         jiraId: context.id,
                         details: 'Contexto de campo existente foi reutilizado.',
@@ -199,8 +259,8 @@ async function ensureFieldsForProject(projectId) {
                     }));
                 }
                 else {
-                    context = await createFieldContext(field, projectId);
-                    logger.info(`Contexto de campo criado para ${cfg.name} no projeto ${projectId}: ${context.id}`);
+                    context = await createFieldContext(field, projectId, issueTypeIds);
+                    logger.info(`[LINK] Contexto criado para ${cfg.name} no projeto ${projectId}: ${context.id}`);
                     contextResults.push(buildContextResult(field.id, cfg.name, context.name, 'created', {
                         jiraId: context.id,
                         details: 'Contexto de campo criado via API para o projeto.',

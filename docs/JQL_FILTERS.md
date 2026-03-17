@@ -6,7 +6,7 @@ Lista dos filtros recomendados para o processo de Customer Success.
 
 Filtro base para o board Kanban de lifecycle.
 
-- **Status**: skipped
+- **Status**: failed
 - **Filtro ID**: n/d
 - **JQL**:
 
@@ -18,20 +18,20 @@ project = CSM ORDER BY updated DESC
 
 Clientes com risco de churn identificado.
 
-- **Status**: skipped
-- **Filtro ID**: n/d
+- **Status**: created
+- **Filtro ID**: 10701
 - **JQL**:
 
 ```text
-project = CSM AND "Status da conta" = "Risco" ORDER BY updated DESC
+project = CSM AND "Ciclo da Conta" = "Risco" ORDER BY updated DESC
 ```
 
 ## CSM - Renovações próximas
 
 Contas com renovação próxima.
 
-- **Status**: skipped
-- **Filtro ID**: n/d
+- **Status**: created
+- **Filtro ID**: 10702
 - **JQL**:
 
 ```text
@@ -42,68 +42,68 @@ project = CSM AND "Data de renovação" >= startOfDay() AND "Data de renovação
 
 Clientes sem interações nos últimos 60 dias.
 
-- **Status**: skipped
+- **Status**: failed
 - **Filtro ID**: n/d
 - **JQL**:
 
 ```text
-project = CSM AND issuetype = "Conta Cliente" AND updated <= -60d ORDER BY updated ASC
+project = CSM AND issuetype = "Cliente" AND updated <= -60d ORDER BY updated ASC
 ```
 
 ## CSM - Oportunidades em aberto
 
 Oportunidades CS ainda em andamento.
 
-- **Status**: skipped
+- **Status**: failed
 - **Filtro ID**: n/d
 - **JQL**:
 
 ```text
-project = CSM AND issuetype = "Oportunidade CS" AND statusCategory != Done ORDER BY created DESC
+project = CSM AND issuetype = "Oportunidade" AND statusCategory != Done ORDER BY created DESC
 ```
 
 ## CSM - Contas por estágio do lifecycle
 
 Visão geral por estágio de lifecycle.
 
-- **Status**: skipped
+- **Status**: failed
 - **Filtro ID**: n/d
 - **JQL**:
 
 ```text
-project = CSM AND issuetype = "Conta Cliente"
+project = CSM AND issuetype = "Cliente"
 ```
 
 ## CSM - Contas ativas
 
 Contas em estágio de cliente ativo.
 
-- **Status**: skipped
-- **Filtro ID**: n/d
+- **Status**: created
+- **Filtro ID**: 10703
 - **JQL**:
 
 ```text
-project = CSM AND issuetype = "Conta Cliente" AND "Status da conta" = "Ativo"
+project = CSM AND issuetype = "Cliente" AND "Ciclo da Conta" = "Ativo"
 ```
 
 ## CSM - Contas churnadas
 
 Contas marcadas como churn.
 
-- **Status**: skipped
-- **Filtro ID**: n/d
+- **Status**: created
+- **Filtro ID**: 10704
 - **JQL**:
 
 ```text
-project = CSM AND issuetype = "Conta Cliente" AND "Status da conta" = "Churn"
+project = CSM AND issuetype = "Cliente" AND "Ciclo da Conta" = "Churn"
 ```
 
 ## CSM - Interações do mês
 
 Interações registradas no mês atual.
 
-- **Status**: skipped
-- **Filtro ID**: n/d
+- **Status**: created
+- **Filtro ID**: 10705
 - **JQL**:
 
 ```text

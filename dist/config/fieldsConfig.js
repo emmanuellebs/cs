@@ -3,7 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadFieldsProvisionConfig = loadFieldsProvisionConfig;
 function loadFieldsProvisionConfig() {
     const fields = [
-        // Conta Cliente
+        // ============================================================================
+        // GRUPO 1: ACCOUNT (17 campos) - Dados da Conta/Cliente
+        // ============================================================================
         {
             key: 'account.segment',
             name: 'Segmento',
@@ -24,11 +26,37 @@ function loadFieldsProvisionConfig() {
             kind: 'number',
         },
         {
+            key: 'account.city',
+            name: 'Cidade',
+            description: 'Cidade principal do cliente.',
+            group: 'account',
+            kind: 'text',
+        },
+        {
+            key: 'account.state',
+            name: 'Estado (UF)',
+            description: 'Estado (UF) do cliente.',
+            group: 'account',
+            kind: 'text',
+        },
+        {
             key: 'account.mrr',
             name: 'MRR',
             description: 'Receita recorrente mensal associada à conta.',
             group: 'account',
             kind: 'number',
+        },
+        {
+            key: 'account.recurringCadence',
+            name: 'Recorrência de cobrança',
+            description: 'Periodicidade da receita recorrente.',
+            group: 'account',
+            kind: 'select',
+            options: [
+                { value: 'Mensal' },
+                { value: 'Trimestral' },
+                { value: 'Anual' },
+            ],
         },
         {
             key: 'account.healthScore',
@@ -43,24 +71,6 @@ function loadFieldsProvisionConfig() {
             description: 'Net Promoter Score associado ao cliente.',
             group: 'account',
             kind: 'number',
-        },
-        {
-            key: 'account.status',
-            name: 'Status da conta',
-            description: 'Status consolidado da conta na visão de CS.',
-            group: 'account',
-            kind: 'select',
-            options: [
-                { value: 'Onboarding' },
-                { value: 'Ativo' },
-                { value: 'Engajamento' },
-                { value: 'Expansão' },
-                { value: 'Advocacy' },
-                { value: 'Renovação' },
-                { value: 'Renovado' },
-                { value: 'Risco' },
-                { value: 'Churn' },
-            ],
         },
         {
             key: 'account.engagement',
@@ -110,9 +120,8 @@ function loadFieldsProvisionConfig() {
             group: 'account',
             kind: 'select',
             options: [
-                { value: 'Platform Core' },
-                { value: 'Platform Plus' },
-                { value: 'Platform Enterprise' },
+                { value: 'SaaS' },
+                { value: 'Suporte' },
             ],
         },
         {
@@ -150,7 +159,9 @@ function loadFieldsProvisionConfig() {
             group: 'account',
             kind: 'paragraph',
         },
-        // Contato principal
+        // ============================================================================
+        // GRUPO 2: PRIMARY CONTACT (5 campos) - Dados do Contato Principal
+        // ============================================================================
         {
             key: 'primaryContact.name',
             name: 'Nome do contato principal',
@@ -186,7 +197,46 @@ function loadFieldsProvisionConfig() {
             group: 'primaryContact',
             kind: 'text',
         },
-        // Interação
+        // ============================================================================
+        // GRUPO 3: CS OPERATION (10 campos) - Dados de Operação CS
+        // ============================================================================
+        // Campo estratégico: Ciclo da Conta - APENAS para issue type Cliente
+        {
+            key: 'csOperation.accountCycle',
+            name: 'Ciclo da Conta',
+            description: 'Estado estratégico do ciclo de vida da conta na jornada de CS. Valores: Onboarding (fase inicial), Ativo (em pleno uso), Adoção (aumentando utilização), Engajamento (alta participação), Expansão (crescimento de uso/valor), Advocacy (cliente promotor), Renovação (próximo período contratual), Renovado (contrato renovado), Risco (possível churn), Churn (cliente inativo/perdido). Este campo aparece APENAS em issues do tipo Cliente.',
+            group: 'csOperation',
+            kind: 'select',
+            options: [
+                { value: 'Onboarding' },
+                { value: 'Ativo' },
+                { value: 'Adoção' },
+                { value: 'Engajamento' },
+                { value: 'Expansão' },
+                { value: 'Advocacy' },
+                { value: 'Renovação' },
+                { value: 'Renovado' },
+                { value: 'Risco' },
+                { value: 'Churn' },
+            ],
+        },
+        {
+            key: 'csOperation.lastMeetingDate',
+            name: 'Última reunião',
+            description: 'Data da última reunião com o cliente.',
+            group: 'csOperation',
+            kind: 'date',
+        },
+        {
+            key: 'csOperation.lastInteractionDate',
+            name: 'Última interação',
+            description: 'Data da última interação registrada com o cliente.',
+            group: 'csOperation',
+            kind: 'date',
+        },
+        // ============================================================================
+        // GRUPO 4: INTERACTION (6 campos) - Dados de Interação
+        // ============================================================================
         {
             key: 'interaction.type',
             name: 'Tipo de interação',
@@ -241,7 +291,9 @@ function loadFieldsProvisionConfig() {
             group: 'interaction',
             kind: 'paragraph',
         },
-        // Plano de Sucesso
+        // ============================================================================
+        // GRUPO 5: SUCCESS PLAN (6 campos) - Dados do Plano de Sucesso
+        // ============================================================================
         {
             key: 'successPlan.goal',
             name: 'Objetivo da ação',
@@ -294,7 +346,9 @@ function loadFieldsProvisionConfig() {
             group: 'successPlan',
             kind: 'paragraph',
         },
-        // Risco / Oportunidade
+        // ============================================================================
+        // GRUPO 6: RISK / OPPORTUNITY (5 campos) - Dados de Risco/Oportunidade
+        // ============================================================================
         {
             key: 'risk.type',
             name: 'Tipo de registro',

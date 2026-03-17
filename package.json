@@ -10,7 +10,9 @@
     "start": "node dist/index.js --mode=apply",
     "dev:apply": "ts-node src/index.ts --mode=apply",
     "dev:audit": "ts-node src/index.ts --mode=audit",
-    "dev:preflight": "ts-node src/index.ts --mode=preflight"
+    "dev:preflight": "ts-node src/index.ts --mode=preflight",
+    "automation:create": "ts-node scripts/create-automation-rules.ts",
+    "restrict:contexts": "ts-node scripts/restrict-field-contexts.ts"
   },
   "keywords": [
     "jira",

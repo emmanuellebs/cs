@@ -76,7 +76,6 @@ export async function ensureIssueTypes(): Promise<IssueTypesProvisionResult> {
     risk: null,
     opportunity: null,
     renewal: null,
-    onboardingTask: null,
   };
 
   for (const cfg of config.issueTypes) {

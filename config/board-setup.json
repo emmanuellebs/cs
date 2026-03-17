@@ -1,0 +1,106 @@
+{
+  "board": {
+    "name": "WH - Customer Success",
+    "description": "Pipeline de Customer Success com 8 etapas"
+  },
+  "stages": [
+    {
+      "name": "Análise de Perfil",
+      "key": "analysis",
+      "description": "Analisar proposta e/ou contrato, faturamento, tamanho e segmento do cliente",
+      "columnName": "Análise de Perfil"
+    },
+    {
+      "name": "Implantação",
+      "key": "implementation",
+      "description": "Com o fechamento do contrato, realizar o acompanhamento desde a instalação até entrega do produto finalizado",
+      "columnName": "Implantação"
+    },
+    {
+      "name": "Lançamento",
+      "key": "launch",
+      "description": "Acompanhar o lançamento da plataforma na empresa",
+      "columnName": "Lançamento"
+    },
+    {
+      "name": "Acompanhamento 1",
+      "key": "followup1",
+      "description": "Analisar experiência de utilização, solicitar feedback",
+      "columnName": "Acompanhamento 1"
+    },
+    {
+      "name": "Acompanhamento 2",
+      "key": "followup2",
+      "description": "Comprovar satisfação e análise de possíveis atualizações",
+      "columnName": "Acompanhamento 2"
+    },
+    {
+      "name": "Expansão",
+      "key": "expansion",
+      "description": "Criar plano de expansão para produtos e ferramentas complementares",
+      "columnName": "Expansão"
+    },
+    {
+      "name": "Renovação",
+      "key": "renewal",
+      "description": "Validação da quantidade de usuários e negociação de renovação",
+      "columnName": "Renovação"
+    },
+    {
+      "name": "Cancelamento",
+      "key": "cancellation",
+      "description": "Análise de solicitação de cancelamento",
+      "columnName": "Cancelamento"
+    }
+  ],
+  "issueTypes": [
+    {
+      "name": "Cliente",
+      "description": "Representa um cliente/conta no pipeline"
+    },
+    {
+      "name": "Interação",
+      "description": "Registro de interação com cliente"
+    },
+    {
+      "name": "Plano de Sucesso",
+      "description": "Estratégia de sucesso para conta"
+    },
+    {
+      "name": "Risco",
+      "description": "Fator de risco identificado"
+    },
+    {
+      "name": "Oportunidade",
+      "description": "Oportunidade de expansão CS"
+    },
+    {
+      "name": "Renovação",
+      "description": "Processo de renovação"
+    }
+  ],
+  "accountStatuses": [
+    "Ativo",
+    "Onboarding",
+    "Churn",
+    "Engajamento",
+    "Equipamento",
+    "Priorização",
+    "Aniversário",
+    "Churn Preventivo"
+  ],
+  "dashboards": [
+    {
+      "name": "Saúde da base",
+      "description": "Visão geral de clientes por health score e status"
+    },
+    {
+      "name": "Relacionamento",
+      "description": "Interações e engajamento com clientes"
+    },
+    {
+      "name": "Crescimento",
+      "description": "Expansões e renovações em andamento"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ function createEmptyReport() {
         fields: [],
         fieldContexts: [],
         fieldOptions: [],
+        fieldScreenAssociations: [],
         filters: [],
         boards: [],
         dashboards: [],

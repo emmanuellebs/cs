@@ -36,18 +36,17 @@ export async function runDependencyCheck(): Promise<ValidationCheckResult[]> {
     });
   }
 
-  // Dashboards dependem de filtros
-  const filterNames = new Set(filtersCfg.filters.map((f) => f.name));
+  // Dashboards e gadgets: apenas verificar que jqlTemplate está presente se necessário
   for (const d of dashboardsCfg.dashboards) {
     for (const gadget of d.gadgets) {
-      if (gadget.filterName && !filterNames.has(gadget.filterName)) {
+      if (!gadget.jqlTemplate) {
         push({
-          key: `dep:dashboard-filter-missing:${d.key}`,
-          title: `Dashboard com gadget referenciando filtro inexistente`,
-          status: 'fail',
-          severity: 'high',
-          message: `Dashboard "${d.name}" possui gadget "${gadget.name}" que referencia o filtro "${gadget.filterName}", não encontrado na configuração de filtros.`,
-          blocking: true,
+          key: `dep:dashboard-gadget-jql:${d.key}`,
+          title: `Dashboard gadget sem JQL template`,
+          status: 'warn',
+          severity: 'low',
+          message: `Dashboard "${d.name}" possui gadget "${gadget.name}" sem jqlTemplate. Verificar manualmente.`,
+          blocking: false,
         });
       }
     }

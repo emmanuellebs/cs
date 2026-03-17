@@ -200,13 +200,11 @@ export function generateDashboardSetup(report: ProvisioningReport): void {
     md += `- **Dashboard ID**: ${result?.jiraId ?? 'n/d'}\n\n`;
 
     md += '### Gadgets recomendados\n\n';
-    md += '| Gadget | Tipo sugerido | Filtro associado |\n';
-    md += '| ------ | ------------- | ---------------- |\n';
+    md += '| Gadget | Tipo sugerido |\n';
+    md += '| ------ | ------------- |\n';
 
     for (const gadget of cfg.gadgets) {
-      md += `| ${gadget.name} | ${gadget.gadgetTypeHint ?? ''} | ${
-        gadget.filterName ?? ''
-      } |\n`;
+      md += `| ${gadget.name} | ${gadget.gadgetTypeHint ?? ''} |\n`;
     }
 
     md += '\n';

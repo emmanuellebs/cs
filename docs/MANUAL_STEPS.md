@@ -6,27 +6,47 @@ Este arquivo consolida itens que não puderam ser totalmente provisionados via A
 
 | Recurso | Nome | Status | Detalhes |
 | ------- | ---- | ------ | -------- |
-| issuetype:account | Conta Cliente | manual | Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente. |
-| issuetype:interaction | Interação | manual | Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente. |
-| issuetype:successPlan | Plano de Sucesso | manual | Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente. |
-| issuetype:risk | Risco | manual | Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente. |
-| issuetype:opportunity | Oportunidade CS | manual | Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente. |
-| issuetype:renewal | Renovação | manual | Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente. |
-| issuetype:onboardingTask | Onboarding Task | manual | Issue type customizado não existe e não pôde ser criado em modo atual. Nenhum fallback padrão encontrado. Criar manualmente. |
-| fieldContext:unknown:Contexto CS | Segmento / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Status da conta / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Engajamento da plataforma / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Participação CS / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Participa do programa de Advocacy / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Produto / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Tipo de interação / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Sentimento do cliente / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Tipo de ação / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
+| fieldContext:customfield_12076:Contexto CS | Segmento / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12077:Contexto CS | Quantidade de usuários / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12078:Contexto CS | MRR / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12079:Contexto CS | Health Score / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12080:Contexto CS | NPS / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12081:Contexto CS | Engajamento da plataforma / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12082:Contexto CS | Participação CS / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12083:Contexto CS | Participa do programa de Advocacy / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12084:Contexto CS | Data de renovação / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12085:Contexto CS | Produto / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12086:Contexto CS | Data de início da jornada / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12087:Contexto CS | Data do lançamento / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12088:Contexto CS | Data do treinamento / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12089:Contexto CS | Duração do contrato / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12090:Contexto CS | Observações da conta / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12091:Contexto CS | Nome do contato principal / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12092:Contexto CS | Email do contato principal / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12093:Contexto CS | Telefone do contato principal / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12094:Contexto CS | Cargo do contato principal / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12095:Contexto CS | Área do contato principal / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12096:Contexto CS | Ciclo da Conta / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12097:Contexto CS | Tipo de interação / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12098:Contexto CS | Data da interação / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12099:Contexto CS | Resumo da interação / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12100:Contexto CS | Insight coletado / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12101:Contexto CS | Sentimento do cliente / Contexto CS | failed | Falha ao garantir contexto de campo. |
+| fieldContext:customfield_12102:Contexto CS | Próximos passos / Contexto CS | failed | Falha ao garantir contexto de campo. |
 | fieldContext:priority:Contexto CS | Prioridade / Contexto CS | failed | Falha ao garantir contexto de campo. |
-| fieldContext:unknown:Contexto CS | Tipo de registro / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
-| fieldContext:unknown:Contexto CS | Probabilidade / Contexto CS | manual | Campo select não foi criado/reutilizado. Contexto e opções precisam ser configurados manualmente. |
+| fieldOption:customfield_12076:unknown: | Segmento /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
+| fieldOption:customfield_12081:unknown: | Engajamento da plataforma /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
+| fieldOption:customfield_12082:unknown: | Participação CS /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
+| fieldOption:customfield_12083:unknown: | Participa do programa de Advocacy /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
+| fieldOption:customfield_12085:unknown: | Produto /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
+| fieldOption:customfield_12096:unknown: | Ciclo da Conta /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
+| fieldOption:customfield_12097:unknown: | Tipo de interação /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
+| fieldOption:customfield_12101:unknown: | Sentimento do cliente /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
 | fieldOption:priority:unknown: | Prioridade /  | manual | Contexto não disponível. Opções do campo precisam ser configuradas manualmente. |
-| board:kanban | CSM - Lifecycle Kanban | manual | Sem filtro base disponível. Crie manualmente um board Kanban com filtro "project = {projectKey}". |
+| filter:boardBase | CSM - Board base | failed | Falha ao criar filtro via API. |
+| filter:noRecentInteractions | CSM - Clientes sem interação recente | failed | Falha ao criar filtro via API. |
+| filter:openOpportunities | CSM - Oportunidades em aberto | failed | Falha ao criar filtro via API. |
+| filter:accountsByLifecycle | CSM - Contas por estágio do lifecycle | failed | Falha ao criar filtro via API. |
 
 ## Workflow recomendado (lifecycle da Conta Cliente)
 

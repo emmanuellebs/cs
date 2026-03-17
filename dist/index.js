@@ -9,15 +9,26 @@ const fieldService_1 = require("./services/fieldService");
 const filterService_1 = require("./services/filterService");
 const boardService_1 = require("./services/boardService");
 const dashboardService_1 = require("./services/dashboardService");
+const sampleDataService_1 = require("./services/sampleDataService");
+const fieldIssueTypeAssocService_1 = require("./services/fieldIssueTypeAssocService");
 const types_1 = require("./utils/types");
 const fileWriter_1 = require("./utils/fileWriter");
 const documentationService_1 = require("./services/documentationService");
 const preflightRunner_1 = require("./validation/preflightRunner");
 const readinessGate_1 = require("./validation/readinessGate");
+const projectConfig_1 = require("./config/projectConfig");
+const issueTypesConfig_1 = require("./config/issueTypesConfig");
+const fieldsConfig_1 = require("./config/fieldsConfig");
+const validationMatrix_1 = require("./validation/validationMatrix");
 async function run() {
     const runtime = (0, runtimeConfig_1.loadRuntimeConfig)();
-    logger_1.rootLogger.info(`Iniciando provisionamento Jira CS | modo=${runtime.mode} | dryRun=${runtime.dryRun}`);
+    logger_1.rootLogger.info(`Iniciando provisionamento Jira CS | modo=${runtime.mode} | dryRun=${runtime.dryRun} | createSampleData=${runtime.createSampleData}`);
     const report = (0, types_1.createEmptyReport)();
+    const issueTypesCfg = (0, issueTypesConfig_1.loadIssueTypesProvisionConfig)();
+    const fieldsCfg = (0, fieldsConfig_1.loadFieldsProvisionConfig)();
+    let issueTypeMap = {};
+    let fieldMap = {};
+    let sampleIssueKey = null;
     // 1) Sempre rodar preflight primeiro
     const preflight = await (0, preflightRunner_1.runPreflight)(runtime.mode);
     if (runtime.mode === 'preflight') {
@@ -62,6 +73,11 @@ async function run() {
     try {
         const issueTypesResult = await (0, issueTypeService_1.ensureIssueTypes)();
         report.issueTypes.push(...issueTypesResult.results);
+        issueTypeMap = issueTypesCfg.issueTypes.reduce((acc, cfg) => {
+            const result = issueTypesResult.results.find((it) => it.key === `issuetype:${cfg.key}`);
+            acc[cfg.key] = result?.jiraId ?? null;
+            return acc;
+        }, {});
     }
     catch (err) {
         logger_1.rootLogger.error('Erro inesperado ao garantir issue types.', err);
@@ -71,11 +87,12 @@ async function run() {
             details: 'Erro inesperado ao garantir issue types.',
             error: err.message,
         });
+        issueTypeMap = {};
     }
     // Fields, contexts e options (somente se tivermos projectId válido)
     if (projectId) {
         try {
-            const fieldsResult = await (0, fieldService_1.ensureFieldsForProject)(projectId);
+            const fieldsResult = await (0, fieldService_1.ensureFieldsForProject)(projectId, issueTypeMap);
             report.fields.push(...fieldsResult.fieldResults);
             report.fieldContexts.push(...fieldsResult.contextResults);
             report.fieldOptions.push(...fieldsResult.optionResults);
@@ -97,6 +114,14 @@ async function run() {
             details: 'ProjectId não está disponível (projeto não criado/reutilizado). Campos, contextos e opções precisam ser configurados após criação manual do projeto.',
         });
     }
+    // Construir mapa de fields (lógico -> Jira ID) para uso posterior (sample data e validação)
+    fieldMap = fieldsCfg.fields.reduce((acc, cfg) => {
+        const result = report.fields.find((f) => f.key === `field:${cfg.key}`);
+        if (result?.jiraId) {
+            acc[cfg.key] = result.jiraId;
+        }
+        return acc;
+    }, {});
     // Filters
     let boardBaseFilterId = null;
     try {
@@ -143,6 +168,77 @@ async function run() {
             error: err.message,
         });
     }
+    // Garantir associação campo -> issue type (sempre que tivermos projeto/issue types mapeados)
+    if (projectId) {
+        try {
+            logger_1.rootLogger.info('[INDEX] Starting field-to-issue-type-screen associations...');
+            const fieldAssocResult = await (0, fieldIssueTypeAssocService_1.ensureFieldIssueTypeAssociations)(projectId, issueTypeMap, fieldMap);
+            report.fieldScreenAssociations = fieldAssocResult.results;
+            logger_1.rootLogger.info(`[INDEX] Field associations completed. ${fieldAssocResult.results.length} issue types processed.`);
+        }
+        catch (err) {
+            logger_1.rootLogger.error('Erro ao associar fields aos screens dos issue types.', err);
+            report.fieldScreenAssociations = [
+                {
+                    key: 'field-assoc:all',
+                    status: 'failed',
+                    details: 'Erro ao associar campos aos screens dos issue types.',
+                    error: err.message,
+                },
+            ];
+        }
+    }
+    // Sample Data (dados demonstrativos - opcional)
+    if (runtime.mode === 'apply' && runtime.createSampleData && projectId) {
+        try {
+            const { jira } = (0, projectConfig_1.loadProjectProvisionConfig)();
+            const sampleDataResult = await (0, sampleDataService_1.ensureSampleData)(jira.projectKey, projectId, issueTypeMap, fieldMap);
+            report.sampleIssues.push(...sampleDataResult.sampleResults);
+            sampleIssueKey = sampleDataResult.sampleResults.find((s) => s.jiraKey)?.jiraKey ?? null;
+        }
+        catch (err) {
+            logger_1.rootLogger.error('Erro inesperado ao garantir sample data.', err);
+            report.sampleIssues.push({
+                key: 'sample:all',
+                status: 'failed',
+                details: 'Erro inesperado ao criar dados demonstrativos.',
+                error: err.message,
+            });
+        }
+    }
+    else if (runtime.createSampleData && runtime.mode !== 'apply') {
+        logger_1.rootLogger.info('Sample data desabilitado: só disponível em modo apply.');
+    }
+    // Validação final obrigatória
+    if (projectId) {
+        try {
+            const { jira } = (0, projectConfig_1.loadProjectProvisionConfig)();
+            await (0, validationMatrix_1.generateValidationMatrix)({
+                projectId,
+                projectKey: jira.projectKey,
+                issueTypeId: issueTypeMap['account'] ?? null,
+                fieldMap,
+                report,
+                sampleIssueKey,
+            });
+        }
+        catch (err) {
+            logger_1.rootLogger.error('Erro ao gerar matriz de validação.', err);
+            report.manualSteps.push({
+                key: 'validation:matrix',
+                status: 'manual',
+                details: 'Falha ao gerar outputs/validation-matrix.md; validar manualmente.',
+                error: err.message,
+            });
+        }
+    }
+    else {
+        report.manualSteps.push({
+            key: 'validation:project-missing',
+            status: 'manual',
+            details: 'Sem projectId; não foi possível gerar matriz de validação.',
+        });
+    }
     // Documentação complementar
     try {
         (0, documentationService_1.generateAllDocumentation)(report);
@@ -183,6 +279,7 @@ async function run() {
     section('Filtros JQL', report.filters);
     section('Boards', report.boards);
     section('Dashboards', report.dashboards);
+    section('Sample Data (Dados Demonstrativos)', report.sampleIssues);
     section('Pendências Manuais', report.manualSteps);
     (0, fileWriter_1.writeTextFile)('outputs/provisioning-summary.md', md);
     logger_1.rootLogger.info('Provisionamento concluído. Veja outputs/provisioning-summary.* para detalhes.');

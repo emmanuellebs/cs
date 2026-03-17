@@ -18,5 +18,7 @@ function loadRuntimeConfig() {
     const mode = cliMode || envMode || 'audit';
     const dryRunEnv = process.env.JIRA_DRY_RUN;
     const dryRun = dryRunEnv ? dryRunEnv.toLowerCase() === 'true' : mode === 'audit';
-    return { mode, dryRun };
+    const createSampleDataEnv = process.env.CREATE_SAMPLE_DATA;
+    const createSampleData = createSampleDataEnv ? createSampleDataEnv.toLowerCase() === 'true' : false;
+    return { mode, dryRun, createSampleData };
 }
